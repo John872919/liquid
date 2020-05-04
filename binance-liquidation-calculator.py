@@ -20,7 +20,7 @@ def lookup_maint(pos):
 
 
 def binance_btc_liq_balance(wallet_balance, contract_qty, entry_price):
-    maint_margin_rate,maint_amount = lookup_maint(abs(wallet_balance*contract_qty))
+    maint_margin_rate,maint_amount = lookup_maint(wallet_balance)
     liq_price = (wallet_balance + maint_amount - contract_qty*entry_price) / (abs(contract_qty) * (maint_margin_rate - (1 if contract_qty>=0 else -1)))
     return round(liq_price, 2)
 
