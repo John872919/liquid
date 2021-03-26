@@ -21,11 +21,6 @@ maint_lookup_table = [
 ]
 
 
-def lookup_maint(pos):
-    pct,amt = [(mr,ma) for p,mr,ma in maint_lookup_table if pos<p][0]
-    return pct/100, amt
-
-
 def binance_btc_liq_balance(wallet_balance, contract_qty, entry_price):
     for max_position, maint_margin_rate_pct, maint_amount in maint_lookup_table:
         maint_margin_rate = maint_margin_rate_pct / 100
